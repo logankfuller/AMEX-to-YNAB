@@ -1,13 +1,19 @@
 const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("fileInput");
 
+document.addEventListener("dragover", dragover);
+function dragover(event) {
+  event.preventDefault();
+
+  if (!dropZone.contains(event.target)) {
+    document.body.style.cursor = "not-allowed";
+    event.dataTransfer.dropEffect = "none";
+  }
+}
+
 dropZone.addEventListener("dragover", dragoverFile);
 function dragoverFile(event) {
   event.preventDefault();
-
-  if (!event.dataTransfer.types.includes("Files")) {
-    return;
-  }
 }
 
 dropZone.addEventListener("dragenter", dragenterFile);
