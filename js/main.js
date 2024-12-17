@@ -31,6 +31,9 @@ function dropFile(event) {
       "Please upload a Excel (.xls) file downloaded from American Express.";
     errorMessage.style.display = "block";
 
+    const downloadButton = document.querySelector("#downloadLink");
+    downloadButton.style.display = "none";
+
     return;
   } else {
     const errorMessage = document.querySelector("#errorMessage");
