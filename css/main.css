@@ -25,7 +25,7 @@ body {
 }
 
 #intro {
-  padding: 1.25rem;
+  margin: 1.25rem;
 }
 
 #intro h1 {
@@ -85,7 +85,7 @@ body {
 
 #downloadLink {
   display: inline-block;
-  margin-top: 1.25rem;
+  margin: 1.25rem;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   color: #fff;
