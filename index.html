@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/xlsx.full.min.js"></script>
     <script src="js/main.js" defer></script>
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
     <title>AMEX -> YNAB</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="intro">
-        <h1>Amex &#8594; YNAB Converter</h1>
-        <p>American Express provides a .xls file when you export your transactions. This tool converts it to a .csv file
-            importable by YNAB.</p>
+      <h1>Amex &#8594; YNAB Converter</h1>
+      <p>
+        American Express provides a .xls file when you export your transactions.
+        This tool converts it to a .csv file importable by YNAB.
+      </p>
     </div>
 
     <div id="dropZone">
-        <p>Drag and drop your downloaded .xls file from American Express here.</p>
+      <p>Drag and drop your downloaded .xls file from American Express here.</p>
 
-        <br>
-        <p>OR</p>
-        <br>
+      <br />
+      <p>OR</p>
+      <br />
 
-        <input type="file" id="fileInput" accept=".xls">
+      <input type="file" id="fileInput" accept=".xls" />
     </div>
 
-    <a id="downloadLink" style="display: none;">Download Converted File</a>
-</body>
-
+    <a id="downloadLink" style="display: none">Download Converted File</a>
+  </body>
 </html>
