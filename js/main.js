@@ -18,6 +18,19 @@ function dragenterFile(event) {
 dropZone.addEventListener("drop", dropFile);
 function dropFile(event) {
   event.preventDefault();
+
+  if (event.dataTransfer.files[0].type !== "application/vnd.ms-excel") {
+    const errorMessage = document.querySelector("#errorMessage");
+    errorMessage.textContent =
+      "Please upload a Excel (.xls) file downloaded from American Express.";
+    errorMessage.style.display = "block";
+
+    return;
+  } else {
+    const errorMessage = document.querySelector("#errorMessage");
+    errorMessage.style.display = "none";
+  }
+
   convertFile(event);
 }
 

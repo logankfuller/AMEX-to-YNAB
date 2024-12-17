@@ -1,6 +1,7 @@
 :root {
   --clrPrimary: #3b5eda;
   --clrHover: #2c47a0;
+  --clrError: #f44336;
   --bgLight: #f9fbfd;
 }
 
@@ -101,6 +102,21 @@ body {
   background-color: var(--clrHover);
   transform: translateY(-0.125rem);
   box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+#errorMessage {
+  display: inline-block;
+  margin: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--clrError);
+  font-weight: bold;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  animation: bounce 2s infinite;
 }
 
 @keyframes fadeInDown {
