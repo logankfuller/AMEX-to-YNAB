@@ -1,5 +1,8 @@
-const dropZone = document.getElementById("dropZone");
-const fileInput = document.getElementById("fileInput");
+const dropZone = document.querySelector("#dropZone");
+const fileInput = document.querySelector("#fileInput");
+
+const dateToggle = document.querySelector("#enableDateFilter");
+const dateRangeContainer = document.querySelector("#dateRangeContainer");
 
 document.addEventListener("dragover", dragover);
 function dragover(event) {
@@ -93,6 +96,13 @@ async function convertFile(event) {
     delete row["Description"];
   }
 
+  const startDate = document.querySelector("#startDate").value;
+  const endDate = document.querySelector("#endDate").value;
+
+  if (dateToggle.checked) {
+    data = filterTransactionsByDate(data, startDate, endDate);
+  }
+
   const newWorksheet = XLSX.utils.json_to_sheet(data);
   const newWorkbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, "Summary");
@@ -105,4 +115,35 @@ async function convertFile(event) {
   downloadButton.href = URL.createObjectURL(blob);
   downloadButton.download = "ConvertedTransactions.csv";
   downloadButton.style.display = "block";
+}
+
+function filterTransactionsByDate(transactions, startDate, endDate) {
+  if (!startDate && !endDate) return transactions;
+
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  return transactions.filter((transaction) => {
+    const txDate = new Date(transaction.Date);
+    // If only start, then filter all transactions after start date. If only end, then filter all transactions before end date.
+    // If both start and end, then filter all transactions between start and end date.
+    if (startDate && !endDate) {
+      return txDate >= start;
+    } else if (!startDate && endDate) {
+      return txDate <= end;
+    } else {
+      return txDate >= start && txDate <= end;
+    }
+  });
+}
+
+dateToggle.addEventListener("change", handleDateFilterToggle);
+function handleDateFilterToggle(e) {
+  const checkbox = e.target;
+
+  if (checkbox.checked) {
+    dateRangeContainer.style.display = "flex";
+  } else {
+    dateRangeContainer.style.display = "none";
+  }
 }

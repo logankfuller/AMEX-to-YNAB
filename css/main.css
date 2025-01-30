@@ -41,10 +41,76 @@ body {
   animation: fadeIn 1.5s ease-in-out;
 }
 
+#dateToggle {
+  margin: 1rem 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+#dateToggle input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--clrPrimary);
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+#dateToggle input[type="checkbox"]:checked {
+  background-color: var(--clrPrimary);
+}
+
+#dateToggle input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 0.875rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#dateToggle input[type="checkbox"]:hover {
+  border-color: var(--clrPrimary);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+#dateToggle label {
+  color: #555;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+#dateRangeContainer {
+  display: none;
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.dateInput {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.dateInput label {
+  font-weight: bold;
+}
+
+.dateInput input {
+  padding: 0.375rem;
+  border: 1px solid var(--clrPrimary);
+  border-radius: 0.25rem;
+}
+
 #dropZone {
   background: #fff;
-  border: 0.1875rem dashed var(--clrPrimary);
-  border-radius: 0.75rem;
+  border: 3px dashed var(--clrPrimary);
+  border-radius: 0.25rem;
   padding: 2.5rem 1.25rem;
   margin: 2rem 0;
   width: 80%;
@@ -73,7 +139,7 @@ body {
   outline: none;
   background-color: var(--clrPrimary);
   color: #fff;
-  border-radius: 0.375rem;
+  border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -91,7 +157,7 @@ body {
   color: #fff;
   background-color: var(--clrPrimary);
   font-weight: bold;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
@@ -112,7 +178,7 @@ body {
   color: #fff;
   background-color: var(--clrError);
   font-weight: bold;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
