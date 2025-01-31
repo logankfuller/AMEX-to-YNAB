@@ -107,6 +107,23 @@ body {
   border-radius: 0.25rem;
 }
 
+@media screen and (max-width: 768px) {
+  #dateRangeContainer {
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+  }
+
+  .dateInput {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .dateInput input[type="date"] {
+    width: 60%;
+  }
+}
+
 #dropZone {
   background: #fff;
   border: 3px dashed var(--clrPrimary);
