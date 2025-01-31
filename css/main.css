@@ -191,7 +191,9 @@ body {
 }
 
 #previewContainer {
+  max-width: 90%;
   margin: 2rem 0;
+  overflow-x: auto;
   animation: fadeIn 1s ease-in-out;
 }
 
