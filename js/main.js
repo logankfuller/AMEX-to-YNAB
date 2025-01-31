@@ -3,6 +3,7 @@ const fileInput = document.querySelector("#fileInput");
 
 const dateToggle = document.querySelector("#enableDateFilter");
 const dateRangeContainer = document.querySelector("#dateRangeContainer");
+const previewToggle = document.querySelector("#enablePreview");
 
 document.addEventListener("dragover", dragover);
 function dragover(event) {
@@ -103,6 +104,10 @@ async function convertFile(event) {
     data = filterTransactionsByDate(data, startDate, endDate);
   }
 
+  if (previewToggle.checked) {
+    updatePreview(data);
+  }
+
   const newWorksheet = XLSX.utils.json_to_sheet(data);
   const newWorkbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, "Summary");
@@ -147,3 +152,29 @@ function handleDateFilterToggle(e) {
     dateRangeContainer.style.display = "none";
   }
 }
+
+function updatePreview(data) {
+  const previewContainer = document.getElementById("previewContainer");
+  const tbody = document.querySelector("#previewTable tbody");
+  tbody.innerHTML = "";
+
+  const previewData = data.slice(0, 10);
+
+  previewData.forEach((row) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${row.Date}</td>
+      <td>${row.Payee}</td>
+      <td>$${row.Amount}</td>
+      <td>${row.Memo}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  previewContainer.style.display = "block";
+}
+
+previewToggle.addEventListener("change", () => {
+  const previewContainer = document.getElementById("previewContainer");
+  previewContainer.style.display = previewToggle.checked ? "block" : "none";
+});

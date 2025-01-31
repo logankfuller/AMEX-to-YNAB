@@ -149,6 +149,74 @@ body {
   transform: scale(1.05);
 }
 
+#previewToggle {
+  margin: 1rem 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+#previewToggle input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--clrPrimary);
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+#previewToggle input[type="checkbox"]:checked {
+  background-color: var(--clrPrimary);
+}
+
+#previewToggle input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 0.875rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#previewToggle label {
+  color: #555;
+  font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+}
+
+#previewContainer {
+  margin: 2rem 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#previewTable {
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#previewTable th,
+#previewTable td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+#previewTable th {
+  background-color: var(--clrPrimary);
+  color: white;
+}
+
+#previewTable tr:hover {
+  background-color: #f8f9fa;
+}
+
 #downloadLink {
   display: inline-block;
   margin: 1.25rem;
